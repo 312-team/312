@@ -7,9 +7,9 @@ from .serializers import RegisterSerializer
 
 class RegisterUserView(APIView):
 
-    @swagger_auto_schema(request_body=RegisterSerializer)
+    @swagger_auto_schema(request_body=RegisterSerializer())
     def post(self, request):
-        ser = RegisterSerializer()
+        ser = RegisterSerializer(data=request.data)
         ser.is_valid(raise_exception=True)
         ser.save()
 

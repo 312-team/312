@@ -7,7 +7,7 @@ class UserManager(BaseUserManager):
     use_in_migrations = True
 
 
-    def create(self, email, password, **kwargs):
+    def _create(self, email, password, **kwargs):
         if not email:
             raise ValueError('Email is required')
         
@@ -20,7 +20,7 @@ class UserManager(BaseUserManager):
 
     
     def create_user(self, email, password, **kwargs):
-        return self.create(email, password, **kwargs)
+        return self._create(email, password, **kwargs)
     
 
     def create_superuser(self, email, password, **kwargs):
@@ -32,8 +32,8 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractUser):
-    username = None
     email = models.EmailField(unique=True)
+    username = None
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
