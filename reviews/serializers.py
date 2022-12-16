@@ -4,7 +4,7 @@ from main.models import Post
 
 class CommentSerializer(ModelSerializer):
     class Meta:
-        model = Comment
+        model = PostComment
         fields = '__all__'
 
     def to_representation(self, instance):
