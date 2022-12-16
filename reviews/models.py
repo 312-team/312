@@ -1,5 +1,7 @@
 from django.db import models
-from main.models import Post, User
+from main.models import Post
+from account.models import User
+
 
 
 class PostComment(models.Model):
