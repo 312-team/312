@@ -1,3 +1,2 @@
-from django.shortcuts import render
-
-# Create your views here.
+from account.models import User
+from .models import Comm

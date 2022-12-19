@@ -9,6 +9,6 @@ class CommentSerializer(ModelSerializer):
 
     def to_representation(self, instance):
         rep = super().to_representation(instance)
-        rep['author'] = instance.author.username
+        rep['user_id'] = instance.author.username
         del rep['post']
         return rep
